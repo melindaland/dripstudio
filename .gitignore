@@ -1,0 +1,49 @@
+# ─────────── macOS ───────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ─────────── Éditeurs ───────────
+.vscode/
+.idea/
+*.swp
+*.sublime-*
+
+# ─────────── API Laravel ───────────
+/api/vendor/
+/api/node_modules/
+/api/.env
+/api/.env.backup
+/api/.env.production
+/api/auth.json
+/api/.phpunit.result.cache
+/api/public/storage
+/api/public/hot
+/api/storage/*.key
+# Photos de vêtements envoyées depuis le téléphone : jamais dans Git
+/api/storage/app/public/vetements/
+/api/storage/app/public/detourees/
+
+# ─────────── App mobile Expo ───────────
+/mobile/node_modules/
+/mobile/.expo/
+/mobile/dist/
+/mobile/web-build/
+/mobile/.env
+/mobile/.env.local
+# Dossiers natifs : régénérés par `expo prebuild`, jamais versionnés
+/mobile/ios/
+/mobile/android/
+
+# ─────────── Secrets & signatures ───────────
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+*.pem
+
+# ─────────── Logs ───────────
+npm-debug.*
+yarn-error.log
+*.log
