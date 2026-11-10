@@ -6,13 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * Un vêtement physique de la garde-robe.
- *
- * Les colonnes temp_min / temp_max remplacent le champ "meteo" du modèle
- * initial : l'algorithme a besoin de comparer des nombres à la température
- * du jour, ce qu'une chaîne de caractères ne permettait pas.
- *
- * nb_ports et derniere_fois_porte sont ce qui rend possible l'objectif
- * éco-responsable du projet : remettre en avant les pièces oubliées.
+ * nb_ports et derniere_fois_porte : remettre en avant les pièces oubliées.
  */
 return new class extends Migration
 {
@@ -21,17 +15,14 @@ return new class extends Migration
         Schema::create('vetements', function (Blueprint $table) {
             $table->id();
 
-            // Présent dès maintenant alors que l'app est mono-utilisateur :
-            // ajouter cette colonne plus tard imposerait de migrer toutes les
-            // tables et de reprendre chaque requête.
+            // Présent dès maintenant même si l'app est mono-utilisateur
             $table->foreignId('user_id')->default(1)->constrained()->cascadeOnDelete();
 
             $table->foreignId('categorie_id')->constrained('categories')->restrictOnDelete();
 
             $table->string('nom', 100);
 
-            // Hexadécimal et non un nom de couleur : permet la conversion en
-            // HSL et le calcul des harmonies entre pièces.
+            // couleur en hexadécimal
             $table->char('couleur_hex', 7)->nullable();
 
             $table->string('motif', 50)->nullable();
@@ -43,15 +34,12 @@ return new class extends Migration
             $table->boolean('impermeable')->default(false);
             $table->boolean('coupe_vent')->default(false);
 
-            // Compteur dénormalisé : évite une jointure coûteuse sur `ports`
-            // à chaque génération de tenue.
             $table->unsignedInteger('nb_ports')->default(0);
             $table->date('derniere_fois_porte')->nullable();
 
             $table->timestamps();
 
-            // Suppression logique : supprimer un vêtement ne doit pas
-            // effacer l'historique des tenues qui le contenaient.
+            // Supprimer un vêtement ne doit pas effacer l'historique des tenues qui le contenaient.
             $table->softDeletes();
 
             $table->index(['user_id', 'categorie_id']);

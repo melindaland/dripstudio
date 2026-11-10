@@ -5,10 +5,10 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Configuration locale de l'utilisatrice.
+ * Configuration locale de l'utilisateur (pour l'instant une personne).
  *
- * Une seule ligne en mono-utilisateur. latitude / longitude mémorisent la
- * dernière position connue : si la géolocalisation échoue au lancement
+ * Une seule ligne en mono-utilisateur.
+ * Lalatitude / longitude mémorisent la dernière position connue : si la géolocalisation échoue au lancement
  * (GPS coupé, permission refusée), l'app peut tout de même proposer une
  * tenue au lieu d'afficher une erreur.
  */

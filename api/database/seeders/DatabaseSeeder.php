@@ -8,12 +8,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * Amorçage de la base.
  *
- * En mono-utilisateur, l'application travaille avec un unique utilisateur
- * d'identifiant 1, vers lequel pointent tous les user_id. Il est créé ici
- * pour que les clés étrangères soient satisfaites dès le départ, sans
- * attendre que l'écran d'inscription (fonctionnalité bonus) existe.
+ * L'application prend en compte un seul utilisateur par défaut
  */
 class DatabaseSeeder extends Seeder
 {

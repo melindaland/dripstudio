@@ -7,10 +7,9 @@ use Illuminate\Support\Facades\Schema;
 /**
  * Table de liaison de l'association N-N entre tenues et vêtements.
  *
- * Elle porte l'attribut ordre_affichage, qui détermine l'empilement visuel
- * des pièces lors du rendu de la tenue (du plus proche de la peau au plus
- * extérieur). Sa clé primaire est composite : une pièce ne peut pas figurer
- * deux fois dans la même tenue.
+ * Elle porte l'attribut ordre_affichage
+ * Elle permet de déterminer l'empilement visuel des pièces lors du rendu de la tenue.
+ * Aussi, une pièce ne peut pas figurer deux fois dans la même tenue.
  */
 return new class extends Migration
 {

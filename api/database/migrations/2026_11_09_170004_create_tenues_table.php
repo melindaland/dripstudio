@@ -5,12 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Une tenue est une COMPOSITION de vêtements.
- *
- * Elle ne dit pas si elle a été portée : c'est le rôle de la table `ports`.
- * Séparer les deux évite d'avoir une colonne date_portee à NULL sur la
- * quasi-totalité des lignes, et permet qu'une même tenue soit portée
- * plusieurs fois.
+ * Une tenue est une composition de vêtements.
  */
 return new class extends Migration
 {
@@ -22,8 +17,7 @@ return new class extends Migration
 
             $table->string('nom', 100)->nullable();
 
-            // Contexte météo au moment de la GÉNÉRATION, conservé pour
-            // pouvoir expliquer a posteriori pourquoi cette tenue a été proposée.
+            // Contexte météo au moment de la génération de la tenue pour permettre à lutilisateur de se souvenir de la raison pour laquelle il a choisi cette tenue.
             $table->decimal('temperature_generation', 4, 1)->nullable();
             $table->string('description_meteo', 100)->nullable();
 

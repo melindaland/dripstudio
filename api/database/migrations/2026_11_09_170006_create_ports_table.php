@@ -7,13 +7,10 @@ use Illuminate\Support\Facades\Schema;
 /**
  * Historique réel des tenues portées.
  *
- * Alimente nb_ports et derniere_fois_porte sur vetements. C'est cette table
- * qui donne un sens à la démarche éco-responsable : sans trace des ports,
- * impossible de savoir quelles pièces sont oubliées.
+ * Alimente nb_ports et derniere_fois_porte sur vetements.
+ * Cette table permet de savoir quelle pièces sont oubliées.
  *
- * temperature_reelle permet d'affiner l'algorithme a posteriori : si une
- * tenue a été portée par 5 °C alors qu'elle était calibrée pour 15 °C,
- * c'est une information exploitable.
+ * Aussi temperature_reelle permet de savoir si une tenue a été portée par 5 °C alors qu'elle était calibrée pour 15 °C.
  */
 return new class extends Migration
 {

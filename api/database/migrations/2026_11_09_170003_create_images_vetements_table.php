@@ -19,9 +19,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('vetement_id')->constrained('vetements')->cascadeOnDelete();
 
-            // Chemin relatif dans le disque Storage, jamais un chemin absolu :
-            // permet de passer du stockage local à un stockage objet S3
-            // sans toucher aux données.
+            // Chemin relatif dans le disque Storage
             $table->string('chemin_fichier', 500);
 
             $table->enum('type', ['originale', 'detouree', 'vignette'])->default('originale');
